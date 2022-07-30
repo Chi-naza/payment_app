@@ -9,6 +9,8 @@ class SizedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size textSize = _textSize(text);
+    print("TextSize: $textSize");
+    print("TextSize.Width: ${textSize.width}");
     return Column(
       children: [
         Text(
@@ -22,11 +24,29 @@ class SizedText extends StatelessWidget {
           overflow: TextOverflow.clip,
           softWrap: false,
         ),
+        SizedBox(height: 5),
+        // The Row where the dot lines are drawn with the help of textSize/textSize function
+        Row(
+          children: [
+            for(int i = 0; i<textSize.width/5; i++)
+              i.isEven?Container(
+                width: 5,
+                height: 2,
+                color: color,
+              )
+              :
+              Container(
+                width: 5,
+                height: 2,
+                color: Colors.white,
+              ),
+          ],
+        ),
       ],
     );
   }
 
-
+// This is a textSize: it willj
   Size _textSize(String text){
     final TextPainter textPainter = TextPainter(
       maxLines: 1,
@@ -40,7 +60,7 @@ class SizedText extends StatelessWidget {
         ),
       ),
     )..layout(minWidth: 0.0, maxWidth: double.infinity);  
-    
+
     return textPainter.size;
   }
 }
