@@ -4,6 +4,9 @@
 - With Getx for routing
 
 ## Demo
-![GitHub Logo](/images/paybills.PNG)
-![GitHub Logo](/images/successful.PNG)
+![PaymentUI demo](/images/paybills.PNG)
+![PaymentUI demo](/images/successful.PNG)
+
+
+
 
